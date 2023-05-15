@@ -46,7 +46,28 @@ void Rational::reducingFractures(){
         }
     }
 }
-void Rational::realNumber(){
-    int numerator = this->getNumerator();
-    int denominator = this->getDenominator();
+float Rational::realNumber()const{
+    int num = this->getNumerator();
+    int den = this->getDenominator();
+    float real =(float) num/den;
+    cout<<real<<endl;
+    return real;
+}
+float Rational::min(const Rational  rational [], int n)const{
+    float currentMin = rational[0].realNumber();
+    for (int i = 0; i < n; i++) {
+        if(rational[i].realNumber() < currentMin){
+            currentMin = rational[i].realNumber();
+        }
+    }
+    return currentMin;
+}
+float Rational::max(const Rational rational[] ,int n)const{
+    float currentMax = rational[0].realNumber();
+    for (int i = 0; i < n; i++) {
+        if(rational[i].realNumber() > currentMax){
+            currentMax = rational[i].realNumber();
+        }
+    }
+    return currentMax;
 }
